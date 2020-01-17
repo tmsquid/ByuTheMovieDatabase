@@ -1,8 +1,14 @@
 # ByuTheMovieDatabase
 
 Written By: Timothy McCarthy
+
 Phone: 408-410-3156
+
 Program Name: BYU The Movie Database
+
+"webapp" files can be found in  "ByuTheMovieDb-13012020-01\src\main\webapp"
+"webservice" files can be found in "ByuTheMovieDb-13012020-01\src\main\java\trm\mccarthycrew\byuthemoviedb"
+Test files can be found in "ByuTheMovieDb-13012020-01\src\test\java"
 
 How to run:
 This application was designed using Netbeans 8.1. The language is written in JAVA, JavaScript and HTML.
