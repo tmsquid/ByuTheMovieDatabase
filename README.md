@@ -12,8 +12,7 @@ Program Name: BYU The Movie Database
 
 Test files can be found in "ByuTheMovieDb-13012020-01\src\test\java"
 
-![image]
-(https://raw.githubusercontent.com/tmsquid/ByuTheMovieDatabase/master/Screenshot/Screenshot1601202-01.jpg)
+![](Screenshot/Screenshot1601202-01.jpg)
 
 How to run:
 This application was designed using Netbeans 8.1. The language is written in JAVA, JavaScript and HTML.
