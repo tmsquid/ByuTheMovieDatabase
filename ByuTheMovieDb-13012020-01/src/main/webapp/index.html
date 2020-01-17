@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="byuthemoviedb.js"></script>
+
+        <style>
+            h1 { color: mediumslateblue; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; }
+            tr {
+                -moz-box-shadow: inset 0 0 5px #888;
+                -webkit-box-shadow: inset 0 0 5px#888;
+                box-shadow: inner 1px 1px 5px #888;
+                display: block;
+            }
+
+            td {
+                padding: 0.5em;
+            }
+            #DesignInfo
+            {
+                width:10px;
+                height:10px;
+                position:absolute;
+                right:0px;
+                bottom:0px;
+            }
+        </style>   
+    </head>
+    <body>
+        <div id="title"><center><h1>BYU The Movie Database</h1></center></div>
+        <div id="movieResults">
+            <center><input id="searchMoviesBnt" type="button" class="button" value="Search" onclick=searchMovies(1)>
+                <input type="text" id="queryText" placeholder="Search for Movie....">
+            </center>
+            <center><div id="errorMsg"></div><div id="moviesFound"></div></center>
+            <center><div id="pageInfo"></div></center>
+
+            <center><h2>Movie Results</h2></center>
+            <center><div id="movieSearchResults"></div></center>
+            <center><div id="movieInfo"></div></center>
+            <center><div id="nextPrevPage"></div></center>
+            <div id="DesignInfo" style=""></div>
+            <br>
+            <br>
+            <br>
+        </div>
+    </body>
+</html>

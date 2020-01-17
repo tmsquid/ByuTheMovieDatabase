@@ -1,0 +1,4 @@
+trm\mccarthycrew\byuthemoviedb\API\JsonArrayRequest.class
+trm\mccarthycrew\byuthemoviedb\WebSocket\MovieWebSocketServer.class
+trm\mccarthycrew\byuthemoviedb\API\GetSearchMovie.class
+trm\mccarthycrew\byuthemoviedb\WebSocket\MovieSessionHandler.class
