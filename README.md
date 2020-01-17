@@ -15,8 +15,13 @@ Test files can be found in "ByuTheMovieDb-13012020-01\src\test\java"
 ![](Screenshot/Screenshot1601202-01.jpg)
 
 How to run:
+
 This application was designed using Netbeans 8.1. The language is written in JAVA, JavaScript and HTML.
 Best way to run this application is to install Netbeans 8.1 and open project.
+
+How to Run Test:
+
+To run selenium you need to change path to webdriver.chrome.driver in test files.
 
 This that I would include in future version:
 
