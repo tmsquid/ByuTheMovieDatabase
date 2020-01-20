@@ -25,7 +25,7 @@ To run selenium you need to change path to webdriver.chrome.driver in test files
 
 This that I would include in future version:
 
-1) Remove websocket URL out off JavaScript file and put in Config file.
+1) Add login.
 
 2) Remove API Key out of GetSearchMovie.java file and put in Config file.
 
