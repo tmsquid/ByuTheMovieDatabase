@@ -47,7 +47,7 @@ public class MovieSessionHandler {
         }
     }
 
-    public void updateMovieSearch(JsonArrayRequest jsonArrayRequest) {
+    public void updateMovieSearch(JsonArrayRequest jsonArrayRequest, Session session) {
         JsonProvider jsonProvider = JsonProvider.provider();
         JsonObject updateMovieSearch;
         if (!jsonArrayRequest.isRequestError()) {
@@ -60,7 +60,8 @@ public class MovieSessionHandler {
                     .add("errorMsg", jsonArrayRequest.getRequestErrorString())
                     .build();
         }
-        sendToAllConnectedSessions(updateMovieSearch);
+        sendToSession(session, updateMovieSearch);
+//        sendToAllConnectedSessions(updateMovieSearch);
     }
 
     private JsonObject createMovieSearchJsonObject(JsonProvider provider, JsonArrayRequest jsonArrayRequest) {

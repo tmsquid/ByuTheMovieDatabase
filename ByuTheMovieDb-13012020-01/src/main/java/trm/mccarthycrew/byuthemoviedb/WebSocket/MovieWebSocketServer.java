@@ -59,7 +59,7 @@ public class MovieWebSocketServer {
 
                 } else {
                     JsonArrayRequest sendMovieRequest = GetSearchMovie.SendRequest(queryString, GetSearchMovie.API_KEY, page);
-                    sessionHandler.updateMovieSearch(sendMovieRequest);
+                    sessionHandler.updateMovieSearch(sendMovieRequest, session);
                 }
             } else {
                 System.out.println("Unknown Action: " + jsonMessage.getString("action"));
