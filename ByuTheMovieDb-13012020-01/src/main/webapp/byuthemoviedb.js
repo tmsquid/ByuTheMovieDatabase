@@ -48,7 +48,7 @@ function onMessage(event) {
             document.getElementById("movieSearchResults").innerHTML = "";
             document.getElementById("nextPrevPage").innerHTML = "";
         } else {
-            document.getElementById("errorMsg").innerHTML = "";
+            document.getElementById("errorMsg").innerHTML = "<p id='moviesFoundErrorMsg'></p>";
             document.getElementById("moviesFound").innerHTML = "Total Movies Found: " + moviesFound;
             document.getElementById("pageInfo").innerHTML = "Page " + page + " of " + totalPage + " Movies on this page: " + movieOnPage;
             //

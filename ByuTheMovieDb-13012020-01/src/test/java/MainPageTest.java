@@ -28,6 +28,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MainPageTest {
 
     private WebDriver driver;
+    
+    private static final String TEST1_URL =  "http://localhost:8888/ByuTheMovieDb-13012020-01/";
 
     public MainPageTest() {
     }
@@ -44,6 +46,7 @@ public class MainPageTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\tmsqu\\eclipse-workspace\\ChomeDriver\\chromedriver.exe");
         driver = new ChromeDriver();
+        
     }
 
     @After
@@ -64,14 +67,15 @@ public class MainPageTest {
     @Test
     public void testSimple() throws Exception {
         WebDriverWait wait = new WebDriverWait(driver, 10);
+//        wait.wait(2000);
         try {
-//            driver.get("http://localhost:8888/ByuTheMovieDb-13012020-01/");
-//            String textFound = driver.findElement(By.xpath("//*[text()='Robyn McCarthy']")).getText();
+           driver.get(TEST1_URL);
+
 //            WebElement queryInput = driver.findElement(By.id("queryText"));
 //            queryInput.sendKeys("Jaws");
 //            WebElement searchButton = driver.findElement(By.id("searchMoviesBnt"));
 //            searchButton.click();
-//            waitForLoad(driver);
+//            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("moviesFoundErrorMsg")));
 //            WebElement moviesFound = driver.findElement(By.id("moviesFound"));
 //            assertTrue(moviesFound.getText().equals("Total Movies Found: 45"));
 //            WebElement pageInfo = driver.findElement(By.id("pageInfo"));
