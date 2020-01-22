@@ -2,7 +2,7 @@
 
 Written By: Timothy McCarthy
 
-Phone: 408-410-3156
+email: tmsquid@yahoo.com
 
 Program Name: BYU The Movie Database
 
