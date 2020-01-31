@@ -1,0 +1,75 @@
+When someone goes to the site. Example: http://localhost:8888/ByuTheMovieDb-13012020-01/ 
+the main paige is loaded.
+
+User puts in a "Search for Movie..." query string and clicks the Search button.
+
+The search button onclick runs the function searchMovie() in byuthemoviedb.js file.
+
+The function send a JSON string through the Web Socket.
+//Send Web socket javaScript code
+var socket = new WebSocket("ws://localhost:8888/ByuTheMovieDb-13012020-01/actions");
+function searchMovies(page) {
+    var queryTextVal = document.getElementById("queryText").value;
+    var action = {
+        action: "searchMovies",
+        queryText: queryTextVal,
+        page: page
+    };
+    socket.send(JSON.stringify(action));
+}
+
+
+In the MovieWebSocketServer.java code a session is opened.
+    @OnOpen
+    public void open(Session session) {
+        sessionHandler.addSession(session);
+        System.out.println("Session ID open: " + session.getId());
+    }
+    
+    The message is recieved in the MovieWebSocketServer.java code
+    //On Messages recieved by session (byuthemoviedb.js)
+    @OnMessage
+    public void handleMessage(String message, Session session) throws Exception {
+        try (JsonReader reader = Json.createReader(new StringReader(message))) {
+            JsonObject jsonMessage = reader.readObject();
+            System.out.println("Mesage Recieved: " + jsonMessage.getString("action"));
+            if ("searchMovies".equals(jsonMessage.getString("action"))) {
+                String queryString = jsonMessage.getString("queryText");
+                int page = jsonMessage.getInt("page");
+                if (queryString == null || queryString.equals("")) {
+
+                } else {
+                    JsonArrayRequest sendMovieRequest = GetSearchMovie.SendRequest(queryString, ApiInfo.API_KEY, page);
+                    sessionHandler.updateMovieSearch(sendMovieRequest, session);
+                }
+            } else {
+                System.out.println("Unknown Action: " + jsonMessage.getString("action"));
+            }
+        }
+    }
+    
+    In the above function a API request is sent to "The Movie Database".
+    
+    After the return of the movies, in the MovieSessionHandler.java the updateMovieSearch function is run. 
+     public void updateMovieSearch(JsonArrayRequest jsonArrayRequest, Session session) {
+        JsonProvider jsonProvider = JsonProvider.provider();
+        JsonObject updateMovieSearch;
+        if (!jsonArrayRequest.isRequestError()) {
+            updateMovieSearch = createMovieSearchJsonObject(jsonProvider, jsonArrayRequest);
+        } else {
+            updateMovieSearch = jsonProvider.createObjectBuilder()
+                    .add("action", "movieSearchUpdate")
+                    .add("moviesFound", 0)
+                    .add("error", true)
+                    .add("errorMsg", jsonArrayRequest.getRequestErrorString())
+                    .build();
+        }
+        sendToSession(session, updateMovieSearch);
+//        sendToAllConnectedSessions(updateMovieSearch);
+    }
+    In the updateMovieSearch function a JSON object is created with the movie search data.
+    This JSON object is sent to the session that requested the search.
+    
+    Back in the byuthemoviedb.js file the message is recieved and onMessage function is ran.
+    
+    In the byuthemoviedb.js onMessage function the html document elements are create to show the movie results.
